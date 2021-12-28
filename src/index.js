@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Navigation, Home, AboutMe, Projects } from "./components";
 import {
   BrowserRouter as Router,
   Route,
@@ -8,13 +9,17 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Header } from "./components";
-
 const App = () => {
   return (
     <Router>
-      <div id="App">
-        <Header />
+      <div>
+        <Home />
+        <Navigation />
+          <Switch>
+            <Route path="/projects"><Projects /></Route>
+            <Route path="/aboutMe"><AboutMe /></Route>
+            <Route path="/home"><Home /></Route>
+        </Switch>
       </div>
     </Router>
   );
